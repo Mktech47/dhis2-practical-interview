@@ -1,0 +1,55 @@
+Design Decisions:
+1. State Management:
+
+    The app uses the StatefulWidget approach for better state management. This is because the app needs to manage the state of the locationController (the text input for the location).
+
+2. User Interface (UI):
+
+    The UI is kept simple with a TextField for the user to input the location and a button to trigger the weather request.
+    The weather details are displayed in a Card to provide a structured and visually appealing presentation.
+
+3. API Request Handling:
+
+    The getWeather function is responsible for making API requests to OpenWeatherMap.
+    It constructs the API URL based on the user's input and the API key.
+    It uses the http package to make the GET request.
+
+4. API Response Handling:
+
+    Upon a successful API response (status code 200), the app extracts relevant weather details such as temperature, humidity, wind speed, and description.
+    These details are then displayed in a Card within an AlertDialog.
+
+5. Error Handling:
+
+    The app checks for common errors such as an empty location input or a failure to fetch weather data.
+    If the location is empty, an error dialog is shown to the user.
+    If there is an error fetching weather data, another error dialog is displayed.
+
+6. User Experience (UX):
+
+    To enhance UX, the app uses an AlertDialog to present the weather details in a clean and organized manner.
+    The app also provides feedback to the user through error dialogs in case of issues.
+
+7. Visual Appeal:
+
+    Icons are used alongside weather details for temperature, humidity, and wind speed to make the information more visually appealing.
+    The AlertDialog is designed with a Card to provide a structured and visually pleasing presentation.
+
+Considerations:
+
+    Code Readability:
+        The code is structured to be readable and maintainable. It follows Flutter best practices for naming conventions and widget organization.
+
+    Separation of Concerns:
+        The API-related logic is encapsulated within the getWeather function, promoting separation of concerns.
+
+    Asynchronous Operations:
+        Asynchronous operations (e.g., API requests) are handled using async and await to avoid blocking the UI.
+
+    User Feedback:
+        The app provides feedback to the user through error dialogs in case of issues. This helps users understand what went wrong.
+
+    Dynamic Content:
+        The app handles dynamic content (user input for location) and provides appropriate error handling for scenarios like an empty location.
+
+These design decisions aim to create a simple, user-friendly weather app with a focus on readability, error handling, and a visually appealing interface.
